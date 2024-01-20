@@ -14,12 +14,17 @@ async fn manual_hello() -> impl Responder {
     HttpResponse::Ok().body("Hey there!")
 }
 
+async fn another_hello() -> impl Responder {
+    HttpResponse::Ok().body("Hello Again!") 
+}
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .service(hello)
             .service(echo)
+            .service(another_hello)
             .route("/hey", web::get().to(manual_hello))
     })
     .bind(("127.0.0.1", 8080))?
