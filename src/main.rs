@@ -15,7 +15,7 @@ async fn manual_hello() -> impl Responder {
 }
 
 async fn another_hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello Again!") 
+    HttpResponse::Ok().body("Hello Again!")
 }
 
 #[actix_web::main]
