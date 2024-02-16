@@ -5,6 +5,8 @@ COPY . .
 
 RUN cargo install --path .
 
+RUN cargo test
+
 EXPOSE 8080
 
 CMD ["cargo", "run"]
